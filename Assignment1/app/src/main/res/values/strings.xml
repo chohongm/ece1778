@@ -4,6 +4,5 @@
     <string name="counter">No Clicks Detected</string>
     <string name="clicker">Register A Click</string>
     <string name="puppy">Cute Puppy! Awww.</string>
-    <string name="menu_anchor">Menu Button</string>
     <string name="reset">Reset App</string>
 </resources>

@@ -68,17 +68,6 @@ public class MainActivity extends AppCompatActivity {
     private Animation fadeIn, fadeOut;
 
     /**
-     * Performs a reset option
-     * @return true always.
-     */
-    private boolean reset() {
-        count = 0;
-        image.setVisibility(View.INVISIBLE);
-        counter.setText(R.string.counter);
-        return true;
-    }
-
-    /**
      * Generating Options Menu.
      * @param menu Menu Object.
      * @return true always.
@@ -99,7 +88,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.reset){
-            return reset();
+            count = 0;
+            image.setVisibility(View.INVISIBLE);
+            counter.setText(R.string.counter);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
