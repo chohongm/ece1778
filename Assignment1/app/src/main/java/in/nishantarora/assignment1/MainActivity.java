@@ -169,13 +169,13 @@ public class MainActivity extends AppCompatActivity {
                 counter.setText(
                         String.format(
                                 Locale.getDefault(),
-                                "I was clicked %d time",
+                                "Clicked %d time",
                                 count));
             } else {
                 counter.setText(
                         String.format(
                                 Locale.getDefault(),
-                                "I was clicked %d times",
+                                "Clicked %d times",
                                 count));
             }
             }
