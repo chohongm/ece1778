@@ -18,8 +18,7 @@
         android:text="@string/counter"
         android:gravity="center_horizontal"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
-        android:id="@+id/counter"
-        />
+        android:id="@+id/counter"/>
 
     <Button
         android:text="@string/clicker"
@@ -59,4 +58,5 @@
         android:paddingLeft="4dp"
         android:visibility="invisible"
         android:contentDescription="@string/puppy"/>
+
 </RelativeLayout>
