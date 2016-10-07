@@ -1,0 +1,29 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="in.nishantarora.assignment2.importFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageButton
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/export_button"
+            android:src="@drawable/ic_file_download_black_96dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/action_import"
+            android:layout_marginBottom="50dp"/>
+
+    <TextView
+            android:text="File Corrupt/Not Supported"
+            android:textAlignment="center"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/error"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="normal|bold"/>
+</FrameLayout>

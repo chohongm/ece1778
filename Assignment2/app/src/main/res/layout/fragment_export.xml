@@ -1,0 +1,30 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="in.nishantarora.assignment2.exportFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="20dp"
+            android:id="@+id/file_name"
+            style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+            android:hint="Enter File Name"
+            android:layout_gravity="center"
+            android:textAlignment="center"/>
+
+    <ImageButton
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/export_button"
+            android:src="@drawable/ic_file_upload_black_96dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/action_export"
+            android:layout_marginBottom="50dp"/>
+</FrameLayout>
