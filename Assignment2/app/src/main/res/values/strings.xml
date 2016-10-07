@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My Movies</string>
+    <string name="blank">Add Some Movies Fam!</string>
+    <string name="add_movie_activity">Add Movie</string>
+    <string name="action_export">Export</string>
+    <string name="table_name">movies</string>
+    <string name="action_import">Import</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="export_activity">Export Movies</string>
+    <string name="action_exit">Exit</string>
+    <string name="import_activity">Import Movies</string>
+</resources>
