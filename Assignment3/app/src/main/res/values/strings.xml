@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Assignment3</string>
+    <string name="action_restore">Restore</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete">Delete Image</string>
+    <string name="delete_all">Delete Everywhere</string>
+    <string name="delete_local">Delete Local</string>
+    <string name="cancel">Cancel</string>
+    <string name="dialog_title">Please Select One</string>
+</resources>
