@@ -82,10 +82,9 @@ public class MainActivityFragment extends Fragment {
         // Mapping permissions
         switch (requestCode) {
             case GALLERY_PERMISSION_RESPONSE_CODE: {
-                //      manageGallery();
+                     // manageGallery();
             }
         }
-        manageGallery();
     }
 
     /**
@@ -102,20 +101,20 @@ public class MainActivityFragment extends Fragment {
                         new ImportFragment()).addToBackStack(null).commit();
             } else {
                 gallery = (GridView) view.findViewById(R.id.galleryGridView);
+                imageAdapter = new ImageAdapter(getActivity());
+                gallery.setAdapter(imageAdapter);
+                gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.M)
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int
+                            position, long id) {
+                        ImageWithFace image = imageAdapter.getItem(position);
+                        Fragment fragment = ImageFragment.newInstance(image.getId());
+                        getFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                fragment).addToBackStack(null).commit();
+                    }
+                });
             }
-            imageAdapter = new ImageAdapter(getActivity());
-            gallery.setAdapter(imageAdapter);
-            gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @RequiresApi(api = Build.VERSION_CODES.M)
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int
-                        position, long id) {
-                    ImageWithFace image = imageAdapter.getItem(position);
-                    Fragment fragment = ImageFragment.newInstance(image.getId());
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            fragment).addToBackStack(null).commit();
-                }
-            });
         }
     }
 
