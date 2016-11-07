@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="in.nishantarora.assignment4.MainActivity">
+    <item
+            android:id="@+id/import_fragment"
+            android:title="@string/action_import"
+            android:orderInCategory="100"
+            app:showAsAction="never"/>
+
+    <item
+            android:id="@+id/clear_db"
+            android:title="@string/clear_db"
+            android:orderInCategory="101"
+            app:showAsAction="never"/>
+</menu>
