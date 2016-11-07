@@ -12,6 +12,7 @@ Looks like Android was patched up with a duct tape. Why do we need to complicate
 - [Assignment 1](http://www.eecg.utoronto.ca/~jayar/ece1778/assignmentp1.pdf)
 - [Assignment 2](http://www.eecg.utoronto.ca/~jayar/ece1778/assignmentp2.pdf)
 - [Assignment 3](http://www.eecg.utoronto.ca/~jayar/ece1778/assignmentp3.pdf)
+- [Assignment 4](http://www.eecg.utoronto.ca/~jayar/ece1778/assignmentp4.pdf)
 
 ## Some cool things I learnt and implemented:
 
@@ -28,6 +29,10 @@ Looks like Android was patched up with a duct tape. Why do we need to complicate
     - [This Delete Method](https://github.com/whizzzkid/ece1778/blob/master/Assignment3/app/src/main/java/in/nishantarora/assignment3/ImageFragment.java#L86). Using ContentResolver is so cool, it can do plenty of stuff.
     - [This Location Getter](https://github.com/whizzzkid/ece1778/blob/master/Assignment3/app/src/main/java/in/nishantarora/assignment3/MainActivityFragment.java#L128) Using alternate locations for faster processing.
     - [This GeoTagging](https://github.com/whizzzkid/ece1778/blob/master/Assignment3/app/src/main/java/in/nishantarora/assignment3/MainActivityFragment.java#L150) Adding locations to your images fast.
+
+- Assignment 4
+
+    - [This Thread Manager](https://github.com/whizzzkid/ece1778/blob/master/Assignment4/app/src/main/java/in/nishantarora/assignment4/ImportFragment.java#L136) Ideally I should've used `ThreadPoolExecuter` but that shit was too complicated for me to run in time for the assignment. This assignment goes as is.
 
 ## Using This Repo:
 The assignments are created by our awesome TAs (Daniel and Braiden) and Professor Dr. Jonathan Rose. Please use this repo only to understand what I am doing, Do not copy if you plan to submit an assignment. This is my original work and I am just sharing my experiences.
