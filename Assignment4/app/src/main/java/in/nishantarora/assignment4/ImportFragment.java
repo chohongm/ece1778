@@ -46,6 +46,7 @@ public class ImportFragment extends Fragment {
     private int imagesTotal = 0;
     private int imagePointer = 0;
     private int liveThreads = 0;
+    private int facesFound = 0;
 
     private Uri uri = android.provider.MediaStore.Images.Media
             .EXTERNAL_CONTENT_URI;
@@ -58,7 +59,7 @@ public class ImportFragment extends Fragment {
 
     private class FaceRecognitionTask extends AsyncTask<String, Integer,
             Boolean> {
-
+        private boolean faceFound = false;
         @Override
         protected Boolean doInBackground(final String... params) {
             Realm faceData = Realm.getDefaultInstance();
@@ -68,17 +69,16 @@ public class ImportFragment extends Fragment {
                     try {
                         DetectFace.FaceData face = new DetectFace(params[2])
                                 .getFace();
-                        // We'll only add this to our database if we find a
-                        // face.
-                        if (face.x > 0 && face.y > 0 && face.e > 0) {
-                            ImageWithFace img = faceData.createObject(ImageWithFace
-                                    .class, params[0]);
-                            img.setTitle(params[1]);
-                            img.setUri(params[2]);
-                            Log.v(TAG, face.x + " " + face.y + " " + face.e);
-                            img.setx(face.x);
-                            img.sety(face.y);
-                            img.sete(face.e);
+                        ImageWithFace img = faceData.createObject(ImageWithFace
+                                .class, params[0]);
+                        img.setTitle(params[1]);
+                        img.setUri(params[2]);
+                        Log.v(TAG, face.x + " " + face.y + " " + face.e);
+                        img.setx(face.x);
+                        img.sety(face.y);
+                        img.sete(face.e);
+                        if (face.x > 0 && face.y > 0) {
+                            faceFound = true;
                         }
                     } catch (Exception e) {
                         Log.v(TAG, "Value Already Exists.");
@@ -92,6 +92,9 @@ public class ImportFragment extends Fragment {
         @Override
         protected void onPostExecute(Boolean result) {
             imagesDone += 1;
+            if (faceFound) {
+                facesFound += 1;
+            }
             liveThreads--;
             updateProgress();
         }
@@ -120,7 +123,8 @@ public class ImportFragment extends Fragment {
         }
         // Updating progress
         progressBar.setProgress((imagesDone*100)/imagesTotal);
-        progressText.setText(imagesDone + "/" + imagesTotal);
+        progressText.setText("Images: [" + imagesDone + "/" + imagesTotal +
+                "] Faces Found: " + facesFound);
         threadText.setText("Running " + liveThreads + " Threads");
         // When complete
         if (imagesDone == imagesTotal){
@@ -151,8 +155,12 @@ public class ImportFragment extends Fragment {
      * maintained a stack when we first came here.
      */
     public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() > 0) {
-            getFragmentManager().popBackStack();
+        try {
+            if (getFragmentManager().getBackStackEntryCount() > 0) {
+                getFragmentManager().popBackStack();
+            }
+        } catch (Exception e) {
+            Log.v(TAG, "could not go back.");
         }
     }
 

@@ -1,7 +1,6 @@
 package in.nishantarora.assignment4;
 
 import android.app.Fragment;
-import android.app.Notification;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -10,6 +9,7 @@ import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,14 +18,8 @@ import android.widget.ImageView;
 
 import io.realm.Realm;
 
+import static android.content.ContentValues.TAG;
 
-/**
- * A simple {@link Fragment} subclass. Activities that contain this fragment
- * must implement the {@link ImageFragment.OnFragmentInteractionListener}
- * interface to handle interaction events. Use the {@link
- * ImageFragment#newInstance} factory method to create an instance of this
- * fragment.
- */
 public class ImageFragment extends Fragment {
     // Just a key.
     public static final String IMAGE_ID = "image_id";
@@ -41,8 +35,7 @@ public class ImageFragment extends Fragment {
      * Use this factory method to create a new instance of this fragment using
      * the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param imageId Parameter 1.
      * @return A new instance of fragment ImageFragment.
      */
     // TODO: Rename and change types and number of parameters
@@ -68,8 +61,12 @@ public class ImageFragment extends Fragment {
      * maintained a stack when we first came here.
      */
     public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() > 0) {
-            getFragmentManager().popBackStack();
+        try {
+            if (getFragmentManager().getBackStackEntryCount() > 0) {
+                getFragmentManager().popBackStack();
+            }
+        } catch (Exception e) {
+            Log.v(TAG, "could not go back.");
         }
     }
 
@@ -121,7 +118,10 @@ public class ImageFragment extends Fragment {
         Bitmap mutableBitmap = workingBitmap.copy(Bitmap.Config.ARGB_8888, true);
 
         Canvas canvas = new Canvas(mutableBitmap);
-        canvas.drawCircle(image.getx(), image.gety(), image.gete()*2, paint);
+        if (image.getx() > 0 && image.gety() > 0) {
+            canvas.drawCircle(image.getx(), image.gety(), image.gete() * 2,
+                    paint);
+        }
 
         imageView.setAdjustViewBounds(true);
         imageView.setImageBitmap(mutableBitmap);

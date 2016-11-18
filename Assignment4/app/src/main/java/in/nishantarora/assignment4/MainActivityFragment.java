@@ -82,7 +82,7 @@ public class MainActivityFragment extends Fragment {
         // Mapping permissions
         switch (requestCode) {
             case GALLERY_PERMISSION_RESPONSE_CODE: {
-                     // manageGallery();
+                manageGallery();
             }
         }
     }
@@ -123,7 +123,6 @@ public class MainActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_main, container, false);
-
         getActivity().setTitle(R.string.app_name);
         manageGallery();
         return view;

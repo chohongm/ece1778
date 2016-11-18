@@ -83,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (id == R.id.clear_db) {
+            getFragmentManager().beginTransaction().replace(R.id
+                    .fragment_container, new ImportFragment())
+                    .addToBackStack(null).commit();
             Realm realm = Realm.getDefaultInstance();
             realm.executeTransaction(new Realm.Transaction() {
                 @Override
